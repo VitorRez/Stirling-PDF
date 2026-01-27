@@ -7,122 +7,87 @@
 </head>
 
 <body>
-  <div class="page-container" style="max-height:100vh;">
+  <div class="page-container">
+
+
+    <!-- Navbar -->
     <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block>
-    <div style="transform-origin: center top; flex:0 1 auto; display:flex; flex-direction:column; align-items:center; justify-content:flex-start;" id="scale-wrap">
-      <br class="d-md-none">
-      <!-- Features -->
-      <script th:src="@{'/js/homecard.js'}"></script>
-      <div style="
-      width: 100%;
-      display: flex;
-      flex-direction: column;"
-      >
-        <div>
-          <br>
-          <div style="justify-content: center; display: flex;">
-            <div style="margin:0 3rem">
-              <div>
-                <div
-                  style="display:flex; flex-direction: column; justify-content: center; width:100%; margin-bottom:1rem">
-                  <div style="width:fit-content; margin: 0 auto; padding: 0 3rem">
-                    <div class="lead fs-4"
-                      th:text="${@homeText != 'null' and @homeText != null and @homeText != ''} ? ${@homeText} : #{home.desc}">
-                  </div>
-                  </div>
-                  <div id="groupRecent" style="width: fit-content; margin: 0 auto">
-                    <div
-                      th:replace="~{fragments/featureGroupHeader :: featureGroupHeader(groupTitle=#{navbar.recent})}">
-                    </div>
-                    <div class="recent-features">
-                      <div class="newfeature"
-                        th:insert="~{fragments/navbarEntry :: navbarEntry('add-attachments', 'attachment', 'home.attachments.title', 'home.attachments.desc', 'attachments.tags', 'other')}">
-                      </div>
-                      <div class="newfeature"
-                        th:insert="~{fragments/navbarEntry :: navbarEntry('scanner-effect', 'scanner', 'scannerEffect.title', 'scannerEffect.description', 'scannerEffect.tags', 'advance')}">
-                      </div>
-                      <div class="newfeature"
-                        th:insert="~{fragments/navbarEntry :: navbarEntry('compress-pdf', 'zoom_in_map', 'home.compressPdfs.title', 'home.compressPdfs.desc', 'compressPDFs.tags', 'advance')}">
-                      </div>
-                      <div class="newfeature"
-                        th:insert="~{fragments/navbarEntry :: navbarEntry('edit-table-of-contents', 'bookmark_add', 'home.editTableOfContents.title', 'home.editTableOfContents.desc', 'editTableOfContents.tags', 'advance')}">
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <input type="text" id="searchBar" onkeyup="filterCards()" th:placeholder="#{home.searchBar}" autofocus>
-              </div>
 
-              <div style="display: flex; column-gap: 3rem; flex-wrap: wrap; margin-left:1rem">
-                <div
-                  style="height:2.5rem;  display: flex; align-items: center; cursor: pointer; justify-content: center;">
-                  <label for="sort-options" th:text="#{home.sortBy}">Sort by:</label>
-                  <select id="sort-options" style="border:none;">
-                    <option value="alphabetical" th:text="#{home.alphabetical}"> </option>
-                    <!-- <option value="personal">Your most used</option> -->
-                    <option value="global" th:text="#{home.globalPopularity}"></option>
-                    <!-- <option value="server">Popularity in organisation</option> -->
-                  </select>
-                </div>
-                <div
-                  style="display: flex; align-items: center; flex-wrap: wrap; align-content: flex-start; width: fit-content; max-width: 100%; gap:2rem;  justify-content: center;" >
-                  <div th:title="#{home.setFavorites}" style="display: flex; align-items: center; cursor: pointer;"
-                    onclick="toggleFavoritesMode()">
-                    <span class="material-symbols-rounded toggle-favourites"
-                      style="font-size: 2rem;  margin-left: 0.2rem;">
-                      star
-                    </span>
-                  </div>
-                  <div onclick="toggleFavoritesView()" th:title="#{home.hideFavorites}" id="favouritesVisibility"
-                    style="display: flex; align-items: center; cursor: pointer;">
-                    <span id="toggle-favourites-icon" class="material-symbols-rounded toggle-favourites"
-                      style="font-size: 2rem;  margin-left: 0.2rem;">
-                      visibility
-                    </span>
-                  </div>
-                  <a th:if="${@shouldShow}" href="https://github.com/Stirling-Tools/Stirling-PDF/releases"
-                    target="_blank" id="update-link" rel="noopener" th:title="#{settings.update}"
-                    style="text-decoration: none; color: inherit; cursor: pointer; display: flex; align-items: center;">
-                    <span class="material-symbols-rounded toggle-favourites"
-                      style="font-size: 2rem; margin-left: 0.2rem;">
-                      update
-                    </span>
-                  </a>
-                </div>
+    <!-- Conteúdo principal -->
+    <main class="home">
 
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-        </div>
-        <div style="width:100%; overflow-x:visible;">
-        <div class="features-container" style="  border-top: 1px;
-        border-top-style: solid;
-        border-color: var(--md-nav-color-on-separator);
-        margin-top: 1rem;
-      ">
-          <div class="feature-rows">
-            <div id="groupFavorites" class="feature-group">
-              <div th:replace="~{fragments/featureGroupHeader :: featureGroupHeader(groupTitle=#{navbar.favorite})}">
-              </div>
-              <div class="nav-group-container">
-              </div>
-            </div>
-            <th:block th:insert="~{fragments/navElements.html :: navElements}"></th:block>
-          </div>
 
-        </div>
-</div>
-
-      </div>   
-          <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
+    <!-- Intro / Busca -->
+    <div class="home-intro">
+      <h1 th:text="#{home.title}">Ferramentas PDF</h1>
+      <p th:text="#{home.desc}">Tudo o que você precisa para trabalhar com PDFs</p>
     </div>
-  </div>
 
+
+    <!-- Grid de ferramentas -->
+    <h2>Organizar:</h2>
+    <div class="tools-grid" id="groupOrganize">
+
+      
+      <a class="tool-card" th:href="@{/multi-tool}"><span class="material-symbols-rounded tool-icon">construction</span><h3>Multi Tool</h3><p>Várias operações em um único fluxo</p></a>
+      <a class="tool-card" th:href="@{/merge-pdfs}"><span class="material-symbols-rounded tool-icon">add_to_photos</span><h3>Unir PDFs</h3><p>Combine múltiplos PDFs</p></a>
+      <a class="tool-card" th:href="@{/split-pdfs}"><span class="material-symbols-rounded tool-icon">cut</span><h3>Dividir PDF</h3><p>Separe páginas</p></a>
+      <a class="tool-card" th:href="@{/rotate-pdf}"><span class="material-symbols-rounded tool-icon">rotate_right</span><h3>Rotacionar PDF</h3><p>Gire páginas</p></a>
+      <a class="tool-card" th:href="@{/crop}"><span class="material-symbols-rounded tool-icon">crop</span><h3>Cortar PDF</h3><p>Corte margens</p></a>
+      <a class="tool-card" th:href="@{/pdf-organizer}"><span class="material-symbols-rounded tool-icon">format_list_bulleted</span><h3>Organizar PDF</h3><p>Organize as páginas</p></a>
+      <a class="tool-card" th:href="@{/remove-pages}"><span class="material-symbols-rounded tool-icon">delete</span><h3>Remover páginas</h3><p>Remova páginas do PDF</p></a>
+      <a class="tool-card" th:href="@{/multi-page-layout}"><span class="material-symbols-rounded tool-icon">dashboard</span><h3>Layout de múltiplas páginas</h3><p>Mesclar várias páginas de um PDF em uma única página</p></a>
+      <a class="tool-card" th:href="@{/scale-pages}"><span class="material-symbols-rounded tool-icon">fullscreen</span><h3>Ajustar escala da página</h3><p>Aleterar tamanho da página e/ou seu conteúdo</p></a>
+      <a class="tool-card" th:href="@{/extract-pages}"><span class="material-symbols-rounded tool-icon">upload</span><h3>Extrair página</h3><p>Extrair determinada página do PDF</p></a>
+      <a class="tool-card" th:href="@{/pdf-to-single-page}"><span class="material-symbols-rounded tool-icon">looks_one</span><h3>PDF para página única</h3><p>Combina todas as páginas em uma só</p></a>
+
+    </div>
+
+    <h2>Converter para PDF:</h2>
+    <div class="tools-grid" id="groupConvertTo">
+      <!-- CONVERTER PARA PDF -->
+      
+      <a class="tool-card" th:href="@{/img-to-pdf}"><span class="material-symbols-rounded tool-icon">picture_as_pdf</span><h3>Imagem para PDF</h3><p>Converta imagens</p></a>
+      <a class="tool-card" th:href="@{/file-to-pdf}"><span class="material-symbols-rounded tool-icon">draft</span><h3>Arquivo para PDF</h3><p>Converta documentos</p></a>
+      <a class="tool-card" th:href="@{/html-to-pdf}"><span class="material-symbols-rounded tool-icon">html</span><h3>HTML para PDF</h3><p>Renderize páginas web</p></a>
+      <a class="tool-card" th:href="@{/ebook-to-pdf}"><span class="material-symbols-rounded tool-icon">menu_book</span><h3>Ebooks para PDF</h3><p>Converte livros para PDF usando Calibre</p></a>
+      <a class="tool-card" th:href="@{/markdown-to-pdf}"><span class="material-symbols-rounded tool-icon">markdown</span><h3>Markdown para PDF</h3><p>Converte arquivos .md para PDF</p></a>
+      <a class="tool-card" th:href="@{/url-to-pdf}"><span class="material-symbols-rounded tool-icon">link</span><h3></h3><p></p></a>
+
+    </div>
+
+    <h2>Converter de PDF:</h2>
+    <div class="tools-grid" id="groupConvertFrom">
+      <!-- CONVERTER DE PDF -->
+      
+      <a class="tool-card" th:href="@{/pdf-to-img}"><span class="material-symbols-rounded tool-icon">photo_library</span><h3>PDF para Imagem</h3><p>Extraia imagens</p></a>
+      <a class="tool-card" th:href="@{/pdf-to-word}"><span class="material-symbols-rounded tool-icon">description</span><h3>PDF para Word</h3><p>Edite no Word</p></a>
+      <a class="tool-card" th:href="@{/pdf-to-text}"><span class="material-symbols-rounded tool-icon">text_fields</span><h3>PDF para Texto</h3><p>Extraia texto</p></a>
+
+
+      <!-- SEGURANÇA -->
+      <a class="tool-card" th:href="@{/add-password}"><span class="material-symbols-rounded tool-icon">lock</span><h3>Adicionar Senha</h3><p>Proteja PDFs</p></a>
+      <a class="tool-card" th:href="@{/remove-password}"><span class="material-symbols-rounded tool-icon">lock_open</span><h3>Remover Senha</h3><p>Desbloqueie PDFs</p></a>
+      <a class="tool-card" th:href="@{/sign}"><span class="material-symbols-rounded tool-icon">signature</span><h3>Assinar PDF</h3><p>Assinatura digital</p></a>
+
+
+      <!-- AVANÇADO -->
+      <a class="tool-card" th:href="@{/compress-pdf}"><span class="material-symbols-rounded tool-icon">zoom_in_map</span><h3>Comprimir PDF</h3><p>Reduza o tamanho</p></a>
+      <a class="tool-card" th:href="@{/repair}"><span class="material-symbols-rounded tool-icon">build</span><h3>Reparar PDF</h3><p>Corrija arquivos</p></a>
+      <a class="tool-card" th:href="@{/pipeline}"><span class="material-symbols-rounded tool-icon">family_history</span><h3>Pipeline</h3><p>Fluxos avançados</p></a>
+
+    </div>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <th:block th:insert="~{fragments/footer.html :: footer}"></th:block>
+
+
+  </div>
 
   <!-- Survey Modal -->
   <div class="modal fade" id="surveyModal" tabindex="-1" role="dialog" aria-labelledby="surveyModalLabel"
@@ -208,7 +173,7 @@
       color: gold;
     }
   </style>
-  <script th:inline="javascript">
+  <!-- <script th:inline="javascript">
     /*<![CDATA[*/
     window.analyticsPromptBoolean = /*[[${@analyticsPrompt}]]*/ false;
     /*]]>*/
@@ -217,7 +182,7 @@
   </script>
   <script th:src="@{'/js/pages/home.js'}" th:inline="javascript"></script>
   <script>
-    function scaleStuff() {
+    /*function scaleStuff() {
       const w = 1440;
       const h = 1000;
       
@@ -243,25 +208,7 @@
       el.style.transformOrigin = 'top center';
       el.style.height = `${origH * finalS}px`;
       
-      // Dynamically adjust features container width based on scale
-      const featuresContainer = document.querySelector('.features-container');
-      if (featuresContainer) {
-        const isRTL = document.documentElement.dir === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
-        const dynamicWidth = Math.min(120, 100 / finalS);
-        const offset = (dynamicWidth - 100) / 2;
-        
-        featuresContainer.style.width = `${dynamicWidth}%`;
-        
-        if (isRTL) {
-          featuresContainer.style.right = `-${offset}%`;
-          featuresContainer.style.left = 'auto';
-        } else {
-          featuresContainer.style.left = `-${offset}%`;
-          featuresContainer.style.right = 'auto';
-        }
-      }
-      
-    }
+    }*/
     let prevW = window.innerWidth;
     let prevH = window.innerHeight;
     let prevDPR = window.devicePixelRatio;
@@ -287,7 +234,7 @@
     });
     
     window.addEventListener('resize', onResize);
-  </script>
+  </script>*/-->
 </body>
 
 </html>

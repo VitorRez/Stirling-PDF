@@ -1,72 +1,169 @@
-#searchBar {
-  color: var(--md-sys-color-on-surface);
-  background-color: var(--md-sys-color-surface-container-low);
-  width: 100%;
-  font-size: 16px;
-  margin-bottom: 2rem;
-  padding: 0.75rem 3.5rem;
-  border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: 3rem;
-  outline-color: var(--md-sys-color-outline-variant);
+/* ==============================
+   HOME / LAYOUT GERAL
+============================== */
+
+.home {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
 }
 
-#filtersContainer {
+.page-container {
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+main.home {
+  overflow: visible !important;
+}
+
+.home-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.home-intro h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.home-intro p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+/* ==============================
+   SEARCH WRAPPER
+============================== */
+
+.search-wrapper {
+  margin: 2.5rem auto 3.5rem;
+  max-width: 520px;
   display: flex;
-  width: 100%;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
-.filter-button {
-  color: var(--md-sys-color-secondary);
-  user-select: none;
-  cursor: pointer;
-  transition: transform 0.3s;
+.search-wrapper input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 1rem;
+  color: #111827;
+}
+
+/* ==============================
+   CATEGORIAS
+============================== */
+
+.category {
+  margin-bottom: 4rem;
+}
+
+.category h2,
+main.home h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 3rem 0 1.75rem;
+  padding-left: 0.25rem;
+}
+
+/* ==============================
+   GRID DE FERRAMENTAS
+============================== */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ==============================
+   CARDS (UFRB STYLE)
+============================== */
+
+.tool-card {
+  border: 1px solid var(--md-sys-color-surface-5);
+  border-radius: 1.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--md-sys-color-surface-5);
+  transition:
+    transform 0.3s,
+    border 0.3s;
   transform-origin: center center;
+  outline: 0px solid transparent;
 }
 
-.filter-button:hover {
-  transform: scale(1.08);
+.tool-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.08),
+    0 20px 48px rgba(0,0,0,0.12);
 }
 
-.search-icon {
-  position: absolute;
-  margin: 0.75rem 1rem;
-  border: 0.1rem solid transparent;
+/* ==============================
+   CONTEÚDO DO CARD
+============================== */
+
+.tool-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  color: #2563eb;
 }
 
-.favorite-icon {
-  display: none;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: var(--md-sys-color-secondary);
+.tool-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
-#tool-icon {
-  height: 100%;
+.tool-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
 }
 
-#tool-text {
-  margin: 0.0rem 0 0 1.25rem;
-}
+/* ==============================
+   FAVORITOS
+============================== */
 
 .favorite-icon img {
-  filter: brightness(0) invert(var(--md-theme-filter-color));
+  filter: brightness(0) invert(0.4);
 }
 
 .favorite-icon:hover .material-symbols-rounded {
   transform: scale(1.2);
 }
 
-.favorite-icon .material-symbols-rounded.fill{
+.favorite-icon .material-symbols-rounded.fill {
   color: #f5c000;
 }
 
+.close-icon {
+  color: var(--favourite-remove) !important;
+}
+
+.add-icon {
+  color: var(--favourite-add) !important;
+}
+
+/* ==============================
+   JUMBOTRON / EXTRAS
+============================== */
+
 .jumbotron {
-  padding: 3rem 3rem;
-  /* Reduce vertical padding */
+  padding: 3rem;
 }
 
 .lookatme {
@@ -75,37 +172,15 @@
   display: inline-block;
 }
 
-.lookatme::after {
-  color: #e33100;
-  text-shadow: 0 0 5px #e33100;
-  /* in the html, the data-lookatme-text attribute must */
-  /* contain the same text as the .lookatme element */
-  content: attr(data-lookatme-text);
-  padding: inherit;
-  position: absolute;
-  inset: 0 0 0 0;
-  z-index: 1;
-  /* 20 steps / 2 seconds = 10fps */
-  -webkit-animation: 2s infinite Pulse steps(20);
-  animation: 2s infinite Pulse steps(20);
+.newfeature {
+  display: flex;
+  width: fit-content;
 }
 
-.newfeature{
-  display: flex;
-  width:fit-content
-}
-.recent-features{
+.recent-features {
   display: flex;
   flex-direction: row;
   max-width: 100%;
   overflow: hidden;
   justify-content: center;
-
-}
-
- .close-icon {
-  color: var(--favourite-remove) !important;
-}
- .add-icon {
-  color: var(--favourite-add) !important;
 }

@@ -1,0 +1,48 @@
+/* ===== Cards ===== */
+.feature-card {
+  border-radius: 1.75rem;
+  padding: 1.25rem;
+  background: var(--md-sys-color-surface-5);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+/* Ícone */
+.feature-card .material-symbols-rounded {
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Título */
+.feature-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Texto */
+.feature-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===== Favoritos ===== */
+.feature-card:hover .favorite-icon {
+  display: block;
+}
+
+/* ===== Busca ===== */
+#searchBar {
+  border-radius: 999px;
+  padding-left: 3.2rem;
+}
+
+.search-icon {
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
