@@ -17,70 +17,55 @@
     <!-- Conteúdo principal -->
     <main class="home">
 
+      <!-- Intro -->
+      <div class="home-intro">
+        <h1 th:text="#{home.title}">Ferramentas PDF</h1>
+        <p th:text="#{home.desc}">Tudo o que você precisa para trabalhar com PDFs</p>
+      </div>
 
-    <!-- Intro / Busca -->
-    <div class="home-intro">
-      <h1 th:text="#{home.title}">Ferramentas PDF</h1>
-      <p th:text="#{home.desc}">Tudo o que você precisa para trabalhar com PDFs</p>
-    </div>
+      <!-- CONTAINER GERAL -->
+      <div class="features-container">
 
+        <!-- ================= ORGANIZAR ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Organizar</h2>
+          </header>
 
-    <!-- Grid de ferramentas -->
-    <h2>Organizar:</h2>
-    <div class="tools-grid" id="groupOrganize">
+          <div class="feature-group-container">
+            <th:block th:replace="~{fragments/card :: card ('multi-tool', 'construction', 'home.multiTool.title', 'home.multiTool.desc', 'multiTool.tags', 'organize')}"/>
+            <th:block th:replace="~{fragments/card :: card ('merge-pdfs', 'add_to_photos', 'home.merge.title', 'home.merge.desc', 'merge.tags', 'organize')}"/>
+            <th:block th:replace="~{fragments/card :: card ('split-pdfs', 'cut', 'home.split.title', 'home.split.desc', 'split.tags', 'organize')}"/>
+            <th:block th:replace="~{fragments/card :: card('rotate-pdf', 'rotate_right', 'home.rotate.title', 'home.rotate.desc', 'rotate.tags', 'organize')}">/>
+          </div>
+        </section>
 
-      
-      <a class="tool-card" th:href="@{/multi-tool}"><span class="material-symbols-rounded tool-icon">construction</span><h3>Multi Tool</h3><p>Várias operações em um único fluxo</p></a>
-      <a class="tool-card" th:href="@{/merge-pdfs}"><span class="material-symbols-rounded tool-icon">add_to_photos</span><h3>Unir PDFs</h3><p>Combine múltiplos PDFs</p></a>
-      <a class="tool-card" th:href="@{/split-pdfs}"><span class="material-symbols-rounded tool-icon">cut</span><h3>Dividir PDF</h3><p>Separe páginas</p></a>
-      <a class="tool-card" th:href="@{/rotate-pdf}"><span class="material-symbols-rounded tool-icon">rotate_right</span><h3>Rotacionar PDF</h3><p>Gire páginas</p></a>
-      <a class="tool-card" th:href="@{/crop}"><span class="material-symbols-rounded tool-icon">crop</span><h3>Cortar PDF</h3><p>Corte margens</p></a>
-      <a class="tool-card" th:href="@{/pdf-organizer}"><span class="material-symbols-rounded tool-icon">format_list_bulleted</span><h3>Organizar PDF</h3><p>Organize as páginas</p></a>
-      <a class="tool-card" th:href="@{/remove-pages}"><span class="material-symbols-rounded tool-icon">delete</span><h3>Remover páginas</h3><p>Remova páginas do PDF</p></a>
-      <a class="tool-card" th:href="@{/multi-page-layout}"><span class="material-symbols-rounded tool-icon">dashboard</span><h3>Layout de múltiplas páginas</h3><p>Mesclar várias páginas de um PDF em uma única página</p></a>
-      <a class="tool-card" th:href="@{/scale-pages}"><span class="material-symbols-rounded tool-icon">fullscreen</span><h3>Ajustar escala da página</h3><p>Aleterar tamanho da página e/ou seu conteúdo</p></a>
-      <a class="tool-card" th:href="@{/extract-pages}"><span class="material-symbols-rounded tool-icon">upload</span><h3>Extrair página</h3><p>Extrair determinada página do PDF</p></a>
-      <a class="tool-card" th:href="@{/pdf-to-single-page}"><span class="material-symbols-rounded tool-icon">looks_one</span><h3>PDF para página única</h3><p>Combina todas as páginas em uma só</p></a>
+        <!-- ================= CONVERTER PARA PDF ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Converter para PDF</h2>
+          </header>
 
-    </div>
+          <div class="feature-group-container">
+            <th:block th:replace="~{fragments/card :: card('img-to-pdf', 'picture_as_pdf', 'home.imageToPdf.title', 'home.imageToPdf.desc', 'imageToPdf.tags', 'convertto')}">/>
+          </div>
+        </section>
 
-    <h2>Converter para PDF:</h2>
-    <div class="tools-grid" id="groupConvertTo">
-      <!-- CONVERTER PARA PDF -->
-      
-      <a class="tool-card" th:href="@{/img-to-pdf}"><span class="material-symbols-rounded tool-icon">picture_as_pdf</span><h3>Imagem para PDF</h3><p>Converta imagens</p></a>
-      <a class="tool-card" th:href="@{/file-to-pdf}"><span class="material-symbols-rounded tool-icon">draft</span><h3>Arquivo para PDF</h3><p>Converta documentos</p></a>
-      <a class="tool-card" th:href="@{/html-to-pdf}"><span class="material-symbols-rounded tool-icon">html</span><h3>HTML para PDF</h3><p>Renderize páginas web</p></a>
-      <a class="tool-card" th:href="@{/ebook-to-pdf}"><span class="material-symbols-rounded tool-icon">menu_book</span><h3>Ebooks para PDF</h3><p>Converte livros para PDF usando Calibre</p></a>
-      <a class="tool-card" th:href="@{/markdown-to-pdf}"><span class="material-symbols-rounded tool-icon">markdown</span><h3>Markdown para PDF</h3><p>Converte arquivos .md para PDF</p></a>
-      <a class="tool-card" th:href="@{/url-to-pdf}"><span class="material-symbols-rounded tool-icon">link</span><h3></h3><p></p></a>
+        <!-- ================= CONVERTER DE PDF ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Converter de PDF</h2>
+          </header>
 
-    </div>
+          <div class="feature-group-container">
+            <!-- cards entram aqui -->
+          </div>
+        </section>
 
-    <h2>Converter de PDF:</h2>
-    <div class="tools-grid" id="groupConvertFrom">
-      <!-- CONVERTER DE PDF -->
-      
-      <a class="tool-card" th:href="@{/pdf-to-img}"><span class="material-symbols-rounded tool-icon">photo_library</span><h3>PDF para Imagem</h3><p>Extraia imagens</p></a>
-      <a class="tool-card" th:href="@{/pdf-to-word}"><span class="material-symbols-rounded tool-icon">description</span><h3>PDF para Word</h3><p>Edite no Word</p></a>
-      <a class="tool-card" th:href="@{/pdf-to-text}"><span class="material-symbols-rounded tool-icon">text_fields</span><h3>PDF para Texto</h3><p>Extraia texto</p></a>
-
-
-      <!-- SEGURANÇA -->
-      <a class="tool-card" th:href="@{/add-password}"><span class="material-symbols-rounded tool-icon">lock</span><h3>Adicionar Senha</h3><p>Proteja PDFs</p></a>
-      <a class="tool-card" th:href="@{/remove-password}"><span class="material-symbols-rounded tool-icon">lock_open</span><h3>Remover Senha</h3><p>Desbloqueie PDFs</p></a>
-      <a class="tool-card" th:href="@{/sign}"><span class="material-symbols-rounded tool-icon">signature</span><h3>Assinar PDF</h3><p>Assinatura digital</p></a>
-
-
-      <!-- AVANÇADO -->
-      <a class="tool-card" th:href="@{/compress-pdf}"><span class="material-symbols-rounded tool-icon">zoom_in_map</span><h3>Comprimir PDF</h3><p>Reduza o tamanho</p></a>
-      <a class="tool-card" th:href="@{/repair}"><span class="material-symbols-rounded tool-icon">build</span><h3>Reparar PDF</h3><p>Corrija arquivos</p></a>
-      <a class="tool-card" th:href="@{/pipeline}"><span class="material-symbols-rounded tool-icon">family_history</span><h3>Pipeline</h3><p>Fluxos avançados</p></a>
-
-    </div>
-
-
+      </div>
     </main>
+
+
 
 
     <!-- Footer -->
