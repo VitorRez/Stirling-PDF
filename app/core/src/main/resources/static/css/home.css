@@ -1,135 +1,65 @@
-/* ===================== CONTAINER GERAL ===================== */
-
-.features-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  max-width: 1200px;
+.home {
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 3rem 2rem 5rem;
 }
 
-/* ===================== GRUPOS ===================== */
-
-.feature-group-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1.5rem;
-  color: var(--md-sys-color-on-surface);
+.page-container {
+  height: auto !important;
+  overflow-y: auto !important;
 }
 
-.feature-group-header h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0;
+main.home {
+  overflow: visible !important;
 }
 
-/* ===================== GRID CENTRAL ===================== */
+.home-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
 
-.feature-group-container {
+.home-intro h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.home-intro p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+/* Ferramentas */
+
+.tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-/* ===================== CARD GRANDE ===================== */
+/* ==============================
+   JUMBOTRON / EXTRAS
+============================== */
 
-.feature-card {
-  width: 100%;
-  max-width: 360px;
-  min-height: 180px;
+.jumbotron {
+  padding: 3rem;
+}
 
+.lookatme {
+  opacity: 1;
   position: relative;
-  background: var(--md-sys-color-surface-5);
-  border-radius: 1.75rem;
-  padding: 2rem;
+  display: inline-block;
+}
 
+.newfeature {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  border: 1px solid var(--md-sys-color-outline-variant);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: fit-content;
 }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--md-sys-elevation-3);
-}
-
-/* ===================== ÍCONE COLORIDO ===================== */
-
-.tool-icon-box {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-
+.recent-features {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  max-width: 100%;
+  overflow: hidden;
   justify-content: center;
-  color: #fff;
-}
-
-.tool-icon-box .material-symbols-rounded {
-  font-size: 24px;
-}
-
-/* ===================== CORES ===================== */
-
-.color-blue   { background: #1e88e5; }
-.color-red    { background: #e53935; }
-.color-green  { background: #43a047; }
-.color-orange { background: #fb8c00; }
-.color-purple { background: #8e24aa; }
-
-/* ===================== TEXTO ===================== */
-
-.card-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  opacity: 0.85;
-}
-
-/* ===================== FAVORITO ===================== */
-
-.favorite-icon {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: 1.4rem;
-  display: none;
-}
-
-.feature-card:hover .favorite-icon {
-  display: block;
-}
-
-/* ===================== MOBILE ===================== */
-
-@media (max-width: 600px) {
-  .feature-group-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-.icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
 }

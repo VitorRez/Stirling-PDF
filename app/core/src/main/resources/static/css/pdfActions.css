@@ -112,6 +112,6 @@ html[dir="rtl"] .pdf-actions_container:last-child>.pdf-actions_insert-file-butto
   z-index: 10;
 }
 
-.hidden {
+/*hidden {
   display: none;
-}
+}*/

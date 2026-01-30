@@ -19,8 +19,8 @@
 
       <!-- Intro -->
       <div class="home-intro">
-        <h1 th:text="#{home.title}">Ferramentas PDF</h1>
-        <p th:text="#{home.desc}">Tudo o que você precisa para trabalhar com PDFs</p>
+        <h1>PDF UFSJ</h1>
+        <p>Sua ferramenta de manipulação de PDFs da UFSJ!</p>
       </div>
 
       <!-- CONTAINER GERAL -->
@@ -33,10 +33,18 @@
           </header>
 
           <div class="feature-group-container">
-            <th:block th:replace="~{fragments/card :: card ('multi-tool', 'construction', 'home.multiTool.title', 'home.multiTool.desc', 'multiTool.tags', 'organize')}"/>
-            <th:block th:replace="~{fragments/card :: card ('merge-pdfs', 'add_to_photos', 'home.merge.title', 'home.merge.desc', 'merge.tags', 'organize')}"/>
-            <th:block th:replace="~{fragments/card :: card ('split-pdfs', 'cut', 'home.split.title', 'home.split.desc', 'split.tags', 'organize')}"/>
-            <th:block th:replace="~{fragments/card :: card('rotate-pdf', 'rotate_right', 'home.rotate.title', 'home.rotate.desc', 'rotate.tags', 'organize')}">/>
+            <th:block class="feature-card" th:replace="~{
+            fragments/card :: card(
+              id='multi-tool',
+              cardLink=@{/multi-tool},
+              endpoint='/api/multi-tool',
+              tags='organize',
+              toolGroup='color-blue',
+              toolIcon='construction',
+              cardTitle=#{home.multiTool.title},
+              cardText=#{home.multiTool.desc}
+            )
+          }"/>
           </div>
         </section>
 
@@ -47,7 +55,6 @@
           </header>
 
           <div class="feature-group-container">
-            <th:block th:replace="~{fragments/card :: card('img-to-pdf', 'picture_as_pdf', 'home.imageToPdf.title', 'home.imageToPdf.desc', 'imageToPdf.tags', 'convertto')}">/>
           </div>
         </section>
 
@@ -58,7 +65,36 @@
           </header>
 
           <div class="feature-group-container">
-            <!-- cards entram aqui -->
+          </div>
+        </section>
+
+        <!-- ================= Assinatura e Segurança ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Assinatura e Segurança</h2>
+          </header>
+
+          <div class="feature-group-container">
+          </div>
+        </section>
+
+        <!-- ================= Visualizar e Editar ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Converter de PDF</h2>
+          </header>
+
+          <div class="feature-group-container">
+          </div>
+        </section>
+
+        <!-- ================= Avançado ================= -->
+        <section class="feature-group">
+          <header class="feature-group-header">
+            <h2>Avançado</h2>
+          </header>
+
+          <div class="feature-group-container">
           </div>
         </section>
 
@@ -158,7 +194,7 @@
       color: gold;
     }
   </style>
-  <!-- <script th:inline="javascript">
+  <script th:inline="javascript">
     /*<![CDATA[*/
     window.analyticsPromptBoolean = /*[[${@analyticsPrompt}]]*/ false;
     /*]]>*/
@@ -167,7 +203,7 @@
   </script>
   <script th:src="@{'/js/pages/home.js'}" th:inline="javascript"></script>
   <script>
-    /*function scaleStuff() {
+    function scaleStuff() {
       const w = 1440;
       const h = 1000;
       
@@ -193,7 +229,7 @@
       el.style.transformOrigin = 'top center';
       el.style.height = `${origH * finalS}px`;
       
-    }*/
+    }
     let prevW = window.innerWidth;
     let prevH = window.innerHeight;
     let prevDPR = window.devicePixelRatio;
@@ -219,7 +255,7 @@
     });
     
     window.addEventListener('resize', onResize);
-  </script>*/-->
+  </script>
 </body>
 
 </html>
