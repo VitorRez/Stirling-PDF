@@ -1,5 +1,5 @@
 .features-container {
-  display: grid;
+  display: block;
   grid-template-columns: repeat(auto-fill, minmax(21rem, 3fr));
   gap: 25px 30px;
 }

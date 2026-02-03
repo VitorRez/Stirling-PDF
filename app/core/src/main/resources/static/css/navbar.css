@@ -795,5 +795,5 @@ html[dir="rtl"] .dropdown-menu {
 }
 
 .hidden {
-  visibility: hidden;
+  visibility: visible;
 }

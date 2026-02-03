@@ -1,65 +1,207 @@
-.home {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 3rem 2rem 5rem;
+/* =====================
+   HOME LAYOUT
+===================== */
+
+html, body {
+  height: auto !important;
+  overflow: auto !important;
 }
 
 .page-container {
+  max-height: none !important;
   height: auto !important;
-  overflow-y: auto !important;
-}
-
-main.home {
   overflow: visible !important;
 }
 
-.home-intro {
+.home-main {
+  max-width: 2500px;   /* ← maior que antes */
+  width: 85%;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+}
+
+/* HERO */
+
+.home-hero {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.home-intro h1 {
-  font-size: 2.4rem;
+.home-hero h1 {
+  font-size: 4rem;
   font-weight: 700;
 }
 
-.home-intro p {
-  font-size: 1.1rem;
-  color: #4b5563;
-  margin-top: 0.5rem;
+.home-hero p {
+  font-size: 1.8rem;
+  color: #9ca3af;
 }
 
-/* Ferramentas */
+/* =====================
+   SEÇÕES
+===================== */
 
-.tools-grid {
+.tool-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.tool-section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* =====================
+   GRID DE CARDS
+===================== */
+
+.tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+  /* 4 colunas em telas grandes */
+  grid-template-columns: repeat(4, minmax(320px, 1fr));
+
   gap: 2rem;
+
+  justify-content: center;
+  align-items: stretch;   /* mesma altura */
 }
 
-/* ==============================
-   JUMBOTRON / EXTRAS
-============================== */
+/* =====================
+   CARD
+===================== */
 
-.jumbotron {
-  padding: 3rem;
-}
-
-.lookatme {
-  opacity: 1;
+.tool-card {
   position: relative;
-  display: inline-block;
+
+  background: #1a1f26;
+  border: 1px solid #2a3038;
+  border-radius: 30px;
+
+  min-height: 150px;
+  padding: 2rem;
+  width: 100%;
+
+  padding: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: all .15s ease;
 }
 
-.newfeature {
-  display: flex;
-  width: fit-content;
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-color: #3a4450;
+  background: #1c222a;
 }
 
-.recent-features {
+.tool-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card-content {
   display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  overflow: hidden;
+  gap: 1.8rem;
+  align-items: flex-start;
+
+  /* importante */
+  width: 100%;
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+
+  min-width: 60px;
+  min-height: 60px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+  text-align: center;
+  padding-bottom: 2px;
+
+  /* COR PADRÃO CASO NÃO VENHA NENHUMA */
+  background: #2a3038;
+  color: white;
+}
+
+.tool-card .material-symbols-rounded {
+  font-size: 38px !important;
+  line-height: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
+
+.tool-text {
+  flex: 1;
+  min-width: 0;   /* importante para quebra correta */
+}
+
+
+.tool-text h3 {
+  font-size: 1rem;
+  font-weight: 600;
+
+  /* evita estourar layout */
+  word-break: break-word;
+}
+
+.tool-text p {
+  font-size: .75rem;
+  line-height: 1.25;
+}
+
+
+/* Favorito */
+.tool-favorite {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  font-size: 1.3rem;
+  opacity: .5;
+}
+
+.tool-favorite:hover {
+  opacity: 1;
+  color: #ffd43b;
+}
+
+
+/* ===== CORES DOS ÍCONES ===== */
+
+/* ===== CORES AUTOMÁTICAS ===== */
+
+.color-blue   { background: #4f46e5; color: white; }
+.color-green  { background: #059669; color: white; }
+.color-red    { background: #dc2626; color: white; }
+.color-orange { background: #ea580c; color: white; }
+.color-purple { background: #7c3aed; color: white; }
+.color-teal   { background: #0d9488; color: white; }
+
+
+
+@media (max-width: 1500px) {
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .tool-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .tool-grid { grid-template-columns: 1fr; }
+}
+
