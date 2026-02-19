@@ -26,54 +26,108 @@
       <!-- Lista de seções -->
       <section class="tool-sections">
 
-        <!-- Grupo -->
         <div class="tool-section">
           <h2 class="tool-section-title">Organizar</h2>
 
           <div class="tool-grid">
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='multi-tool', cardLink=@{/multi-tool}, endpoint='/api/multi-tool', tags='multiTool.tags', toolIcon='construction', cardTitle=#{home.multiTool.title}, cardText=#{home.multiTool.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='merge-pdfs', cardLink=@{/merge-pdfs}, endpoint='/api/merge-pdfs', tags='merge.tags', toolIcon='add_to_photos', cardTitle=#{home.merge.title}, cardText=#{home.merge.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='split-pdfs', cardLink=@{/split-pdfs}, endpoint='/api/split-pdfs', tags='split.tags', toolIcon='cut', cardTitle=#{home.split.title}, cardText=#{home.split.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='rotate-pdf', cardLink=@{/rotate-pdf}, endpoint='/api/rotate-pdf', tags='rotate.tags', toolIcon='rotate_right', cardTitle=#{home.rotate.title}, cardText=#{home.rotate.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='crop', cardLink=@{/crop}, endpoint='/api/crop', tags='crop.tags', toolIcon='crop', cardTitle=#{home.crop.title}, cardText=#{home.crop.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='pdf-organizer', cardLink=@{/pdf-organizer}, endpoint='/api/pdf-organizer', tags='pdfOrganiser.tags', toolIcon='format_list_bulleted', cardTitle=#{home.pdfOrganiser.title}, cardText=#{home.pdfOrganiser.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='remove-pages', cardLink=@{/remove-pages}, endpoint='/api/remove-pages', tags='removePages.tags', toolIcon='delete', cardTitle=#{home.removePages.title}, cardText=#{home.removePages.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='multi-page-layout', cardLink=@{/multi-page-layout}, endpoint='/api/multi-page-layout', tags='pageLayout.tags', toolIcon='dashboard', cardTitle=#{home.pageLayout.title}, cardText=#{home.pageLayout.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='scale-pages', cardLink=@{/scale-pages}, endpoint='/api/scale-pages', tags='scalePages.tags', toolIcon='fullscreen', cardTitle=#{home.scalePages.title}, cardText=#{home.scalePages.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='extract-page', cardLink=@{/extract-page}, endpoint='/api/extract-page', tags='extractPage.tags', toolIcon='upload', cardTitle=#{home.extractPage.title}, cardText=#{home.extractPage.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='pdf-to-single-page', cardLink=@{/pdf-to-single-page}, endpoint='/api/pdf-to-single-page', tags='PdfToSinglePage.tags', toolIcon='looks_one', cardTitle=#{home.PdfToSinglePage.title}, cardText=#{home.PdfToSinglePage.desc})}"></th:block>
-
+            <th:block th:insert="~{fragments/tool-card :: toolCard('multi-tool','multiTool','organize','construction')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('merge-pdfs','merge','organize','add_to_photos')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('split-pdfs','split','organize','cut')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('rotate-pdf','rotate','organize','rotate_right')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('crop','crop','organize','crop')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-organizer','pdfOrganiser','organize','format_list_bulleted')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-pages','removePages','organize','delete')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('multi-page-layout','pageLayout','organize','dashboard')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('scale-pages','scalePages','organize','fullscreen')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('extract-page','extractPage','organize','upload')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-single-page','PdfToSinglePage','organize','looks_one')}"></th:block>
           </div>
         </div>
 
-        <!-- Outro grupo -->
         <div class="tool-section">
-          <h2 class="tool-section-title">Converter</h2>
+          <h2 class="tool-section-title">Converter para PDF</h2>
 
           <div class="tool-grid">
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='img-to-pdf', cardLink=@{/img-to-pdf}, endpoint='/api/img-to-pdf', tags='imageToPdf.tags', toolIcon='picture_as_pdf', cardTitle=#{home.imageToPdf.title}, cardText=#{home.imageToPdf.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='cbz-to-pdf', cardLink=@{/cbz-to-pdf}, endpoint='/api/cbz-to-pdf', tags='cbzToPdf.tags', toolIcon='auto_stories', cardTitle=#{home.cbzToPdf.title}, cardText=#{home.cbzToPdf.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='ebook-to-pdf', cardLink=@{/ebook-to-pdf}, endpoint='/api/ebook-to-pdf', tags='ebookToPdf.tags', toolIcon='menu_book', cardTitle=#{home.ebookToPdf.title}, cardText=#{home.ebookToPdf.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='file-to-pdf', cardLink=@{/file-to-pdf}, endpoint='/api/file-to-pdf', tags='fileToPDF.tags', toolIcon='draft', cardTitle=#{home.fileToPDF.title}, cardText=#{home.fileToPDF.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='url-to-pdf', cardLink=@{/url-to-pdf}, endpoint='/api/url-to-pdf', tags='URLToPDF.tags', toolIcon='link', cardTitle=#{home.URLToPDF.title}, cardText=#{home.URLToPDF.desc})}"></th:block>
-
-            <th:block th:insert="~{fragments/tool-card :: toolCard(id='html-to-pdf', cardLink=@{/html-to-pdf}, endpoint='/api/html-to-pdf', tags='HTMLToPDF.tags', toolIcon='html', cardTitle=#{home.HTMLToPDF.title}, cardText=#{home.HTMLToPDF.desc})}"></th:block>
-
+            <th:block th:insert="~{fragments/tool-card :: toolCard('img-to-pdf','imageToPdf','to-pdf','picture_as_pdf')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('ebook-to-pdf','ebookToPdf','to-pdf','menu_book')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('file-to-pdf','fileToPDF','to-pdf','draft')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('url-to-pdf','URLToPDF','to-pdf','link')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('html-to-pdf','HTMLToPDF','to-pdf','html')}"></th:block>
           </div>
+        </div>
+
+        <div class="tool-section">
+          <h2 class="tool-section-title">Converter de PDF</h2>
+          <!-- <th:block th:insert="~{fragments/tool-card :: toolCard(id='', cardLink=@{/}, endpoint='/api/', tags=#{.tags}, toolIcon='', cardTitle=#{home..title}, cardText=#{home..desc})}"></th:block> -->
+
+          <div class="tool-grid">
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-img','pdfToImage','from-pdf','photo_library')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-epub','pdfToEpub','from-pdf','menu_book')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-html','PDFToHTML','from-pdf','html')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-presentation','PDFToPresentation','from-pdf','slideshow')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-text','PDFToText','from-pdf','text_fields')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-word','PDFToWord','from-pdf','description')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pdf-to-xml','PDFToXML','from-pdf','code')}"></th:block>
+          </div>
+        </div>
+
+        <div class="tool-section">
+          <h2 class="tool-section-title">Assinatura & Segurança</h2>
+
+          <div class="tool-grid">
+            <th:block th:insert="~{fragments/tool-card :: toolCard('add-password','addPassword','security','lock')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('add-watermark','watermark','security','water_drop')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('redact','redact','security','lock')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('cert-sign','certSign','security','workspace_premium')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('change-permissions','permissions','security','encrypted')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-cert-sign','removeCertSign','security','remove_moderator')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-password','removePassword','security','lock_open_right')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('sanitize-pdf','sanitizePdf','security','sanitizer')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('sign','sign','security','signature')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('stamp','AddStampRequest','security','approval')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('validate-signature','validateSignature','security','verified')}"></th:block>
+          </div>
+        </div>
+
+        <div class="tool-section">
+          <h2 class="tool-section-title">Visualizar & Editar</h2>
+
+          <div class="tool-grid">
+            <th:block th:insert="~{fragments/tool-card :: toolCard('view-pdf','viewPdf','view','menu_book')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('add-page-numbers','add-page-numbers','view','123')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('add-image','addImage','view','text_fields')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('change-metadata','changeMetadata','view','assignment')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('ocr-pdf','ocr','view','quick_reference_all')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('extract-images','extractImages','view','photo_library')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('flatten','flatten','view','layers_clear')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-blanks','removeBlanks','view','scan_delete')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-annotations','removeAnnotations','view','thread_unread')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('compare','compare','view','compare')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('get-info-on-pdf','getPdfInfo','view','info')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('remove-image-pdf','removeImagePdf','view','remove_selection')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('replace-and-invert-color-pdf','replaceColorPdf','view','format_color_fill')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('unlock-pdf-forms','unlockPDFForms','view','preview_off')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('add-attachments','attachments','view','attachment')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('extract-attachments','extractAttachments','view','folder_zip')}"></th:block>
+          </div>
+
+        </div>
+
+        <div class="tool-section">
+          <h2 class="tool-section-title">Avançado</h2>
+
+          <div class="tool-grid">
+            <th:block th:insert="~{fragments/tool-card :: toolCard('pipeline','pipeline','advanced','family_history')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('compress-pdf','compressPdfs','advanced','zoom_in_map')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('extract-image-scans','ScannerImageSplit','advanced','scanner')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('repair','repair','advanced','build')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('auto-split-pdf','autoSplitPDF','advanced','cut')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('scanner-effect','scannerEffect','advanced','scanner')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('split-by-size-or-count','autoSizeSplitPDF','advanced','cut')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('edit-table-of-contents','editTableOfContents','advanced','bookmark_add')}"></th:block>
+            <th:block th:insert="~{fragments/tool-card :: toolCard('split-pdf-by-chapters','splitPdfByChapters','advanced','cut')}"></th:block>
+          </div>
+
         </div>
 
       </section>

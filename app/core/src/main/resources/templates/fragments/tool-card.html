@@ -1,49 +1,49 @@
 <th:block th:fragment="toolCard (
-    id,
-    cardLink,
-    endpoint,
-    tags,
-    toolIcon,
-    cardTitle,
-    cardText
+    base,
+    key,
+    category,
+    icon
 )">
-  <div class="tool-card"
-       th:id="${id}"
-       th:if="${@endpointConfiguration.isEndpointEnabled(cardLink)}"
-       th:data-tags="${tags}"
-       th:data-endpoint="@{${endpoint}}">
 
-    <a class="tool-card-link" th:href="${cardLink}">
-      <div class="tool-card-content">
+<th:block th:with="
+    id=${base},
+    link='/' + ${base},
+    endpoint='/api/' + ${base},
+    title=${#messages.msg('home.' + key + '.title')},
+    desc=${#messages.msg('home.' + key + '.desc')}
+">
 
-        <span
-          class="tool-icon material-symbols-rounded"
-          th:classappend="${
-              tags == 'organize' ? 'color-blue' :
-              tags == 'convert'  ? 'color-green' :
-              tags == 'security' ? 'color-red' :
-              tags == 'view'     ? 'color-purple' :
-              tags == 'edit'     ? 'color-orange' :
-              tags == 'other'    ? 'color-teal' :
-              'color-blue'
-          }"
-          th:text="${toolIcon}">
-        </span>
+<div class="tool-card"
+     th:id="${id}"
+     th:if="${@endpointConfiguration.isEndpointEnabled(endpoint)}"
+     th:data-category="${category}">
 
-        <div class="tool-text">
-          <h3 th:text="${cardTitle}">Título</h3>
-          <p th:text="${cardText}">Descrição</p>
-        </div>
+  <a class="tool-card-link" th:href="${link}">
 
+    <div class="tool-card-content">
+
+      <span class="tool-icon material-symbols-rounded"
+            th:classappend=" ${
+              category == 'organize'  ? 'color-blue' :
+              category == 'to-pdf'    ? 'color-green' :
+              category == 'from-pdf'  ? 'color-cyan' :
+              category == 'security'  ? 'color-red' :
+              category == 'view'      ? 'color-purple' :
+              category == 'advanced'  ? 'color-orange' :
+              'color-teal'
+            }"
+            th:text="${icon}">
+      </span>
+
+      <div class="tool-text">
+        <h3 th:text="${title}"></h3>
+        <p th:text="${desc}"></p>
       </div>
-    </a>
 
-    <!-- Favorito
-    <span class="material-symbols-rounded tool-favorite"
-          th:data-endpoint="@{${endpoint}}"
-          th:onclick="'addToFavorites(\\'' + @{${cardLink}} + '\\')'">
-      star
-    </span> -->
+    </div>
+  </a>
 
-  </div>
+</div>
+
+</th:block>
 </th:block>
