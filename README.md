@@ -1,69 +1,167 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png" width="80" alt="Stirling PDF logo">
-</p>
+# Stirling – Guia Completo de Instalação e Execução Local
 
-<h1 align="center">Stirling PDF - The Open-Source PDF Platform</h1>
+Este documento descreve como baixar o projeto do repositório e executá-lo localmente utilizando:
 
-Stirling PDF is a powerful, open-source PDF editing platform. Run it as a personal desktop app, in the browser, or deploy it on your own servers with a private API. Edit, sign, redact, convert, and automate PDFs without sending documents to external services.
+./gradlew bootRun
 
-<p align="center">
-  <a href="https://hub.docker.com/r/stirlingtools/stirling-pdf">
-    <img src="https://img.shields.io/docker/pulls/frooodle/s-pdf" alt="Docker Pulls">
-  </a>
-  <a href="https://discord.gg/HYmhKj45pU">
-    <img src="https://img.shields.io/discord/1068636748814483718?label=Discord" alt="Discord">
-  </a>
-  <a href="https://scorecard.dev/viewer/?uri=github.com/Stirling-Tools/Stirling-PDF">
-    <img src="https://api.scorecard.dev/projects/github.com/Stirling-Tools/Stirling-PDF/badge" alt="OpenSSF Scorecard">
-  </a>
-  <a href="https://github.com/Stirling-Tools/stirling-pdf">
-    <img src="https://img.shields.io/github/stars/stirling-tools/stirling-pdf?style=social" alt="GitHub Repo stars">
-  </a>
-</p>
+Não é necessário Docker ou Kubernetes.
 
-![Stirling PDF - Dashboard](images/home-light.png)
+------------------------------------------------------------
 
-## Key Capabilities
+📌 PRÉ-REQUISITOS DO SISTEMA
 
-- **Everywhere you work** - Desktop client, browser UI, and self-hosted server with a private API.
-- **50+ PDF tools** - Edit, merge, split, sign, redact, convert, OCR, compress, and more.
-- **Automation & workflows** - No-code pipelines direct in UI with APIs to process millions of PDFs.
-- **Enterprise‑grade** - SSO, auditing, and flexible on‑prem deployments.
-- **Developer platform** - REST APIs available for nearly all tools to integrate into your existing systems.
-- **Global UI** - Interface available in 40+ languages.
+Instale TODAS as dependências abaixo antes de executar o projeto.
 
-For a full feature list, see the docs: **https://docs.stirlingpdf.com**
+------------------------------------------------------------
 
-## Quick Start
+1️⃣ Java (Obrigatório)
 
-```bash
-docker run -p 8080:8080 docker.stirlingpdf.com/stirlingtools/stirling-pdf
-```
+Requerido: Java 17 ou superior (recomendado 17 LTS)
 
-Then open: http://localhost:8080
+Verificar:
+java -version
 
-For full installation options (including desktop and Kubernetes), see our [Documentation Guide](https://docs.stirlingpdf.com/#documentation-guide).
+Instalar (Ubuntu/Debian):
+sudo apt update
+sudo apt install openjdk-17-jdk
 
-## Resources
+------------------------------------------------------------
 
-- [**Documentation**](https://docs.stirlingpdf.com)
-- [**Homepage**](https://stirling.com)
-- [**API Docs**](https://registry.scalar.com/@stirlingpdf/apis/stirling-pdf-processing-api/)
-- [**Server Plan & Enterprise**](https://docs.stirlingpdf.com/Paid-Offerings)
+2️⃣ Git
 
-## Support
+sudo apt install git
 
-- **Community** [Discord](https://discord.gg/HYmhKj45pU)
-- **Bug Reports**: [Github issues](https://github.com/Stirling-Tools/Stirling-PDF/issues)
+------------------------------------------------------------
 
-## Contributing
+3️⃣ Tesseract (OCR PDF)
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+sudo apt install tesseract-ocr
+sudo apt install tesseract-ocr-por   # opcional idioma português
 
-For development setup, see the [Developer Guide](DeveloperGuide.md).
+Verificar:
+tesseract --version
 
-For adding translations, see the [Translation Guide](devGuide/HowToAddNewLanguage.md).
+------------------------------------------------------------
 
-## License
+4️⃣ OCRmyPDF (OCR PDF)
 
-Stirling PDF is open-core. See [LICENSE](LICENSE) for details.
+sudo apt install ocrmypdf
+
+Verificar:
+ocrmypdf --version
+
+------------------------------------------------------------
+
+5️⃣ qpdf (Repair / Compress PDF)
+
+Requerido: versão 11 ou superior (recomendado 12)
+
+sudo apt install qpdf
+
+Verificar:
+qpdf --version
+
+------------------------------------------------------------
+
+6️⃣ rar (PDF → CBR)
+
+sudo apt install rar
+
+------------------------------------------------------------
+
+7️⃣ WeasyPrint (HTML/URL/Markdown/EML → PDF)
+
+Dependências do sistema:
+sudo apt install python3-pip python3-dev \
+    libcairo2 libpango-1.0-0 libpangocairo-1.0-0 \
+    libgdk-pixbuf-2.0-0 libffi-dev shared-mime-info
+
+Instalar:
+pip install weasyprint
+
+Verificar:
+weasyprint --version
+
+------------------------------------------------------------
+
+8️⃣ unoconvert (File → PDF)
+
+Instalar LibreOffice:
+sudo apt install libreoffice
+
+Instalar unoconv:
+pip install unoconv
+
+Verificar:
+unoconv --version
+
+------------------------------------------------------------
+
+9️⃣ ebook-convert (PDF ↔ EPUB / Ebook)
+
+Faz parte do Calibre.
+
+sudo apt install calibre
+
+Verificar:
+ebook-convert --version
+
+------------------------------------------------------------
+
+🔟 OpenCV (Python) – Extract Image Scans
+
+pip install opencv-python
+
+Verificar:
+python3 -c "import cv2; print(cv2.__version__)"
+
+------------------------------------------------------------
+
+1️⃣1️⃣ Ghostscript
+
+sudo apt install ghostscript
+
+Verificar:
+gs --version
+
+------------------------------------------------------------
+
+1️⃣2️⃣ Poppler Utilities
+
+sudo apt install poppler-utils
+
+------------------------------------------------------------
+
+📥 Clonando o Repositório
+
+git clone <URL_DO_REPOSITORIO>
+cd <NOME_DO_PROJETO>
+
+------------------------------------------------------------
+
+▶ Executando o Projeto
+
+./gradlew bootRun
+
+Na primeira execução, o Gradle irá baixar automaticamente as dependências Java.
+
+------------------------------------------------------------
+
+🌐 Acessando
+
+http://localhost:8080
+
+------------------------------------------------------------
+
+✅ Checklist Final
+
+java -version
+tesseract --version
+ocrmypdf --version
+qpdf --version
+ebook-convert --version
+gs --version
+
+Se tudo estiver funcionando:
+
+./gradlew bootRun
